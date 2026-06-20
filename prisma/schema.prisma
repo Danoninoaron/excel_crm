@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Gasto {
+  id        Int      @id @default(autoincrement())
+  concepto  String
+  coste     Float
+  moneda    String   @default("CHF")
+  fecha     DateTime
+  tema      String
+  eurChf    Float    @default(1)
+  costeChf  Float
+  createdAt DateTime @default(now())
+}
+
+model Ingreso {
+  id        Int      @id @default(autoincrement())
+  concepto  String
+  importe   Float
+  mes       Int
+  anio      Int
+  createdAt DateTime @default(now())
+}
