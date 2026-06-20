@@ -27,7 +27,6 @@ export async function POST(req: NextRequest) {
       eurChf: Number(r.eurChf) || 1,
       costeChf: Number(r.costeChf) || 0,
     })),
-    skipDuplicates: false,
   });
 
   return NextResponse.json({ imported: created.count }, { status: 201 });
